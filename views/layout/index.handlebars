@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pather</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.0/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+</head>
+<body>
+    <section class="hero is-info mb-4">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">
+                    Pather
+                </h1>
+                <h2 class="subtitle">
+                    App for move your movies 😨
+                </h2>
+            </div>
+        </div>
+    </section>
+
+    {{{body}}}
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $('.movie').click(function (e) {
+            e.preventDefault();
+
+            // Open Modal
+            $('.modal').addClass('is-active');
+
+            // Set filename on title
+            $('.modal-card-title').html($(this).attr('data-movie-name'))
+
+            // Set filename on inputs
+            $('#currentName').val($(this).attr('data-movie-name'))
+            $('#newName').val($(this).attr('data-movie-name'))
+        })
+
+        function closeModal() {
+            $('.modal').removeClass('is-active')
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<div class="container mb-4">
+    <article class="panel is-info">
+        <p class="panel-heading">
+            Your movies 👀
+        </p>
+        
+
+        {{#if listExists}}
+            {{#each files}}
+            <a class="panel-block movie" data-movie-name="{{this}}">
+                <span class="panel-icon">
+                    <i class="fas fa-file" aria-hidden="true"></i>
+                </span>
+                {{this}}
+            </a>
+            {{/each}}
+        {{/if}}
+    </article>
+</div>
+
+<div class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+        <form action="/move" method="POST">
+            <header class="modal-card-head">
+                <p class="modal-card-title"></p>
+                <button class="delete" aria-label="close" onclick="closeModal();"></button>
+            </header>
+            <section class="modal-card-body">
+                <div class="field">
+                    <label class="label">Current name</label>
+                    <div class="control">
+                        <input name="currentName" id="currentName" class="input" type="text" value="" readonly aria-readonly="true" />
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">New name</label>
+                    <div class="control">
+                        <input name="newName" id="newName" class="input" type="text" placeholder="Put the filename for the movie" />
+                    </div>
+                </div>
+            </section>
+            <footer class="modal-card-foot">
+                <button type="submit" class="button is-success">Move</button>
+                <button type="button" class="button" onclick="closeModal();">Cancel</button>
+            </footer>
+        </form>
+    </div>
+</div>
