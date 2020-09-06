@@ -37,7 +37,7 @@ app.post('/move', async (req, res) => {
     const source = path.join(process.env.SOURCE_FOLDER,currentName)
     const destination = path.join(process.env.DESTINATION_FOLDER, newName)
 
-    exec(`mv '${source}' '${destination}'`, (err, stdout, stderr) => {
+    exec(`sudo mv '${source}' '${destination}'`, (err, stdout, stderr) => {
         if(err) res.json(err)
 
         res.json({
