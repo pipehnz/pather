@@ -1,11 +1,9 @@
+{{#if listExists}}
 <div class="container mb-4">
     <article class="panel is-info">
         <p class="panel-heading">
             Your movies 👀
         </p>
-        
-
-        {{#if listExists}}
             {{#each files}}
             <a class="panel-block movie" data-movie-name="{{this}}">
                 <span class="panel-icon">
@@ -14,9 +12,14 @@
                 {{this}}
             </a>
             {{/each}}
-        {{/if}}
     </article>
 </div>
+{{else}}
+<div class="container has-text-centered is-size-1-desktop notification">
+    <h1 class="title">Your files?</h1>
+    <h2 class="subtitle">Nothing here... 😪</h2>
+</div>
+{{/if}}
 
 <div class="modal">
     <div class="modal-background"></div>

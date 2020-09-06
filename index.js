@@ -26,7 +26,7 @@ app.get('/', (req, res) => {
         res.render('main', {
             layout: 'index',
             files: files,
-            listExists: true
+            listExists: files.length > 0
         });
     })
 });
